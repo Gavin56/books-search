@@ -23,8 +23,27 @@ function Search() {
     });
   };
 
-  //console.log(googleBooks);
+  const handleSavedBooks = (id) => {
+    const savedBooks = googleBooks.find((savedBooks) => savedBooks.id === id);
 
+    console.log(savedBooks);
+    console.log("Saving...");
+
+    API.saveBook({
+      googleId: savedBooks.id,
+      title: savedBooks.volumeInfo.title,
+      image: savedBooks.volumeInfo.imageLinks.thumbnail,
+      author: savedBooks.volumeInfo.authors.join(", "),
+      description: savedBooks.volumeInfo.description,
+      link: savedBooks.volumeInfo.infoLink,
+    })
+      .then(() => googleBooks)
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  
   useEffect(() => {
     if (googleBooks) {
       const showBooks = googleBooks.map((books) => {
@@ -39,8 +58,8 @@ function Search() {
                   authors={books.volumeInfo.authors + ""}
                   description={books.volumeInfo.description}
                   link={books.volumeInfo.selfLink}
-                >
-                </BookCard>
+                  handleSave={() => handleSavedBooks(books.id)}
+                ></BookCard>
               </Grid>
             </Grid>
           </Container>
@@ -49,6 +68,7 @@ function Search() {
       setDisplayData(showBooks);
     }
   }, [googleBooks]);
+
 
   return (
     <Container>
@@ -86,7 +106,7 @@ function Search() {
         {displayData.length ? (
           <div>{displayData}</div>
         ) : (
-          <p style={{ textAlign: "center", color:"white" }}>
+          <p style={{ textAlign: "center", color: "white" }}>
             Searched books will appear here.
           </p>
         )}
