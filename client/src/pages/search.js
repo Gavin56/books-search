@@ -29,8 +29,8 @@ function Search() {
     if (googleBooks) {
       const showBooks = googleBooks.map((books) => {
         return (
-          <Container container spacing={1}>
-            <Grid>
+          <Container>
+            <Grid container spacing={7}>
               <Grid item xs={12}>
                 <BookCard
                   key={books.id}
@@ -51,11 +51,17 @@ function Search() {
   }, [googleBooks]);
 
   return (
-    <Container container spacing={1}>
-      <Paper style={{ backgroundColor: "#474747", marginBottom: 100, paddingBottom: 25 }}>
+    <Container>
+      <Paper
+        style={{
+          backgroundColor: "#474747",
+          marginBottom: 100,
+          paddingBottom: 25,
+        }}
+      >
         <Paper
           elevation={4}
-          style={{ backgroundColor: "#474747", height: 200 }}
+          style={{ backgroundColor: "#474747", height: 200, marginBottom: 35 }}
         >
           <div>
             <h1 style={{ textAlign: "center", color: "white", paddingTop: 15 }}>
@@ -77,7 +83,13 @@ function Search() {
           </div>
         </Paper>
 
-        <div>{displayData}</div>
+        {displayData.length ? (
+          <div>{displayData}</div>
+        ) : (
+          <p style={{ textAlign: "center", color:"white" }}>
+            Searched books will appear here.
+          </p>
+        )}
       </Paper>
     </Container>
   );
