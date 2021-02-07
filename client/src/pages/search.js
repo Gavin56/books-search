@@ -18,7 +18,7 @@ function Search() {
   };
   const handleBtnClick = () => {
     API.getGoogleBooks(search).then((res) => {
-      //console.log(res);
+      console.log(res);
       setGoogleBooks(res.data.items);
     });
   };
@@ -29,7 +29,7 @@ function Search() {
     if (googleBooks) {
       const showBooks = googleBooks.map((books) => {
         return (
-          <Container>
+          <Container key={books.id}>
             <Grid container spacing={7}>
               <Grid item xs={12}>
                 <BookCard
@@ -38,8 +38,8 @@ function Search() {
                   thumbnail={books.volumeInfo.imageLinks.smallThumbnail}
                   authors={books.volumeInfo.authors + ""}
                   description={books.volumeInfo.description}
+                  link={books.volumeInfo.selfLink}
                 >
-                  {/* View */}
                 </BookCard>
               </Grid>
             </Grid>
