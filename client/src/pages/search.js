@@ -1,10 +1,11 @@
 // import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
-import Grid from "../components/Grid/index";
-import GridItem from "../components/GridItem/index";
+import Grid from "@material-ui/core/Grid";
 import BookCard from "../components/BookCard/index";
-import Container from "../components/Container/index";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+import BooksIcon from "@material-ui/icons/LibraryBooksOutlined";
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -28,19 +29,19 @@ function Search() {
     if (googleBooks) {
       const showBooks = googleBooks.map((books) => {
         return (
-          <Container>
+          <Container container spacing={1}>
             <Grid>
-              <GridItem>
+              <Grid item xs={12}>
                 <BookCard
-                    key={books.id}
-                    title={books.volumeInfo.title}
-                    thumbnail={books.volumeInfo.imageLinks.smallThumbnail} 
-                    authors={books.volumeInfo.authors + ""}
-                    description={books.volumeInfo.description}
-                    >
-                    {/* View */}
+                  key={books.id}
+                  title={books.volumeInfo.title}
+                  thumbnail={books.volumeInfo.imageLinks.smallThumbnail}
+                  authors={books.volumeInfo.authors + ""}
+                  description={books.volumeInfo.description}
+                >
+                  {/* View */}
                 </BookCard>
-              </GridItem>
+              </Grid>
             </Grid>
           </Container>
         );
@@ -48,13 +49,37 @@ function Search() {
       setDisplayData(showBooks);
     }
   }, [googleBooks]);
+
   return (
-    <div>
-      <p>Here</p>
-      <input placeholder="Search Book" onChange={handleInputChange} />
-      <button onClick={handleBtnClick}>Search</button>
-      <div>{displayData}</div>
-    </div>
+    <Container container spacing={1}>
+      <Paper style={{ backgroundColor: "#474747", marginBottom: 100, paddingBottom: 25 }}>
+        <Paper
+          elevation={4}
+          style={{ backgroundColor: "#474747", height: 200 }}
+        >
+          <div>
+            <h1 style={{ textAlign: "center", color: "white", paddingTop: 15 }}>
+              <BooksIcon
+                fontSize="large"
+                style={{ marginRight: 10 }}
+              ></BooksIcon>
+              Welcome to Google Books!
+            </h1>
+
+            <Grid
+              item
+              xs={12}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <input placeholder="Search Book" onChange={handleInputChange} />
+              <button onClick={handleBtnClick}>Search</button>
+            </Grid>
+          </div>
+        </Paper>
+
+        <div>{displayData}</div>
+      </Paper>
+    </Container>
   );
 }
 
