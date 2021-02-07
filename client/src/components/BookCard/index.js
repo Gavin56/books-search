@@ -3,25 +3,7 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 function BookCard(props) {
-
-  // const handleSavedBooks = (id) => {
-  //   const savedBooks = googleBooks.find((savedBooks) => savedBooks.id === id);
-
-  //   console.log(savedBooks);
-  //   API.saveBook({
-  //     googleId: savedBooks.id,
-  //     title: savedBooks.volumeInfo.title,
-  //     image: savedBooks.volumeInfo.imageLinks.thumbnail,
-  //     author: savedBooks.volumeInfo.authors.join(", "),
-  //     description: savedBooks.volumeInfo.description,
-  //     link: savedBooks.volumeInfo.infoLink,
-  //   })
-  //     .then(() => googleBooks)
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
+  
   return (
     <Grid>
       <Paper elevation={4} style={{ backgroundColor: "#292929", padding: 15 }}>

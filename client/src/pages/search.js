@@ -90,7 +90,7 @@ function Search() {
                   thumbnail={books.volumeInfo.imageLinks.smallThumbnail}
                   authors={books.volumeInfo.authors + ""}
                   description={books.volumeInfo.description}
-                  link={books.volumeInfo.selfLink}
+                  link={books.volumeInfo.infoLink}
                   handleSave={() => handleSavedBooks(books.id)}
                 ></BookCard>
               </Grid>
