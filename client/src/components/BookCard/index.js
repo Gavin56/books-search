@@ -22,18 +22,17 @@ function BookCard(props) {
           
           <Grid item xs={12}>
             <Button
-              color="primary"
               variant="outlined"
               target="_blank"
               href={props.link}
               rel="noreferrer"
-              style={{ marginTop: 10 }}
+              style={{ marginTop: 20, backgroundColor: "#173a85", borderColor:"white", color:"white" }}
             >
               View
             </Button>
             <Button
               variant="outlined"
-              style={{ marginLeft: 20, marginTop: 10 }}
+              style={{ marginLeft: 20, marginTop: 20, backgroundColor: "#214d14", borderColor:"white", color:"white" }}
             >
               Save
             </Button>
