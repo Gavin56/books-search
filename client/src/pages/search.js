@@ -16,6 +16,7 @@ function Search() {
     setSearch(event.target.value);
     // console.log(search);
   };
+
   const handleBtnClick = () => {
     API.getGoogleBooks(search).then((res) => {
       console.log(res);
@@ -43,33 +44,6 @@ function Search() {
       });
   };
 
-  
-  useEffect(() => {
-    if (googleBooks) {
-      const showBooks = googleBooks.map((books) => {
-        return (
-          <Container key={books.id}>
-            <Grid container spacing={7}>
-              <Grid item xs={12}>
-                <BookCard
-                  key={books.id}
-                  title={books.volumeInfo.title}
-                  thumbnail={books.volumeInfo.imageLinks.smallThumbnail}
-                  authors={books.volumeInfo.authors + ""}
-                  description={books.volumeInfo.description}
-                  link={books.volumeInfo.selfLink}
-                  handleSave={() => handleSavedBooks(books.id)}
-                ></BookCard>
-              </Grid>
-            </Grid>
-          </Container>
-        );
-      });
-      setDisplayData(showBooks);
-    }
-  }, [googleBooks]);
-
-
   return (
     <Container>
       <Paper
@@ -81,7 +55,11 @@ function Search() {
       >
         <Paper
           elevation={4}
-          style={{ backgroundColor: "#474747", height: 200, marginBottom: 35 }}
+          style={{
+            backgroundColor: "#474747",
+            height: 200,
+            marginBottom: 35,
+          }}
         >
           <div>
             <h1 style={{ textAlign: "center", color: "white", paddingTop: 15 }}>
@@ -103,10 +81,27 @@ function Search() {
           </div>
         </Paper>
 
-        {displayData.length ? (
-          <div>{displayData}</div>
+        <Grid container spacing={7}>
+          {googleBooks.map((books) => {
+            return (
+              <Grid item xs={12} key={books.id}>
+                <BookCard
+                  title={books.volumeInfo.title}
+                  thumbnail={books.volumeInfo.imageLinks.smallThumbnail}
+                  authors={books.volumeInfo.authors + ""}
+                  description={books.volumeInfo.description}
+                  link={books.volumeInfo.selfLink}
+                  handleSave={() => handleSavedBooks(books.id)}
+                ></BookCard>
+              </Grid>
+            );
+          })}
+        </Grid>
+
+        {googleBooks.length ? (
+          <p></p>
         ) : (
-          <p style={{ textAlign: "center", color: "white" }}>
+          <p style={{ textAlign: "center", color: "white", paddingTop: 20 }}>
             Searched books will appear here.
           </p>
         )}
