@@ -9,25 +9,35 @@ function BookCard(props) {
         <div style={{ color: "white" }}>
           <h2 style={{ fontStyle: "italic" }}>{props.title}</h2>
           <p>By {props.authors}</p>
-          <img src={props.thumbnail} alt="Book Cover" />
-          <p>{props.description}</p>
-          <Button
-            color="primary"
-            variant="outlined"
-            target="_blank"
-            href={props.link}
-            rel="noreferrer"
-            style={{marginTop: 10}}
-          >
-            View
-          </Button>
-          <Button
-            
-            variant="outlined"
-            style={{marginLeft:20, marginTop: 10}}
-          >
-            Save
-          </Button>
+
+          <Grid container>
+            <Grid item xs={12} md={2}>
+              <img src={props.thumbnail} alt="Book Cover" />
+            </Grid>
+
+            <Grid item xs={12} md={10}>
+              <p>{props.description}</p>
+            </Grid>
+          </Grid>
+          
+          <Grid item xs={12}>
+            <Button
+              color="primary"
+              variant="outlined"
+              target="_blank"
+              href={props.link}
+              rel="noreferrer"
+              style={{ marginTop: 10 }}
+            >
+              View
+            </Button>
+            <Button
+              variant="outlined"
+              style={{ marginLeft: 20, marginTop: 10 }}
+            >
+              Save
+            </Button>
+          </Grid>
         </div>
       </Paper>
     </Grid>
