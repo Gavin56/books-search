@@ -33,7 +33,7 @@ function Search() {
       googleId: savedBooks.id,
       title: savedBooks.volumeInfo.title,
       image: savedBooks.volumeInfo.imageLinks.thumbnail,
-      author: savedBooks.volumeInfo.authors,
+      author: savedBooks.volumeInfo.authors.join(", "),
       description: savedBooks.volumeInfo.description,
       link: savedBooks.volumeInfo.infoLink,
     })
