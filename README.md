@@ -7,7 +7,6 @@
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Link](#Link to deployed application)
 * [Images](#Images)
 
 ## Description
