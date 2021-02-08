@@ -45,7 +45,7 @@ function Saved() {
           }}
         >
           <div>
-            <h1 style={{ textAlign: "center", color: "white", paddingTop: 15 }}>
+            <h1 style={{ textAlign: "center", color: "white", paddingTop: 15, fontFamily:'Playfair Display' }}>
               <BooksIcon
                 fontSize="large"
                 style={{ marginRight: 10 }}
@@ -57,6 +57,7 @@ function Saved() {
                 color: "white",
                 textAlign: "center",
                 fontStyle: "italic",
+                fontFamily:'Playfair Display' 
               }}
             >
               Your Saved Books

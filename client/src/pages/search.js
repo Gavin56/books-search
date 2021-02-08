@@ -62,7 +62,14 @@ function Search() {
           }}
         >
           <div>
-            <h1 style={{ textAlign: "center", color: "white", paddingTop: 15 }}>
+            <h1
+              style={{
+                textAlign: "center",
+                color: "white",
+                paddingTop: 15,
+                fontFamily: "Playfair Display",
+              }}
+            >
               <BooksIcon
                 fontSize="large"
                 style={{ marginRight: 10 }}
@@ -76,12 +83,20 @@ function Search() {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <input placeholder="Search Book" onChange={handleInputChange} />
-              <button onClick={handleBtnClick}>Search</button>
+
+              <Button variant="outlined" style={{color:"white", borderColor:"white", marginLeft:10}} onClick={handleBtnClick}>
+                Search
+              </Button>
+
             </Grid>
             <Grid
               item
               xs={12}
-              style={{ display: "flex", justifyContent: "center", marginTop: 25,}}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: 25,
+              }}
             >
               <Button
                 variant="disabled"
