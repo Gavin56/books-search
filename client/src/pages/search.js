@@ -6,6 +6,7 @@ import BookCard from "../components/BookCard/index";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import BooksIcon from "@material-ui/icons/LibraryBooksOutlined";
+import Button from "@material-ui/core/Button";
 
 function Search() {
   const [search, setSearch] = useState("");
@@ -86,15 +87,24 @@ function Search() {
               <Grid item xs={12} key={books.id}>
                 <BookCard
                   title={books.volumeInfo.title}
-                  thumbnail={books.volumeInfo.imageLinks.smallThumbnail}
+                  thumbnail={books.volumeInfo.imageLinks.thumbnail}
                   authors={books.volumeInfo.authors + ""}
                   description={books.volumeInfo.description}
                   link={books.volumeInfo.infoLink}
-                  // handleSave={() => handleSavedBooks(books.id)}
                 >
-                  <button onClick={() => handleSavedBooks(books.id)}>
+                  <Button
+                    onClick={() => handleSavedBooks(books.id)}
+                    variant="outlined"
+                    style={{
+                      marginLeft: 20,
+                      marginTop: 20,
+                      backgroundColor: "#214d14",
+                      borderColor: "white",
+                      color: "white",
+                    }}
+                  >
                     Save
-                  </button>
+                  </Button>
                 </BookCard>
               </Grid>
             );

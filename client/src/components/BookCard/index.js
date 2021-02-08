@@ -36,19 +36,6 @@ function BookCard(props) {
             >
               View
             </Button>
-            {/* <Button
-              onClick={props.handleSave}
-              variant="outlined"
-              style={{
-                marginLeft: 20,
-                marginTop: 20,
-                backgroundColor: "#214d14",
-                borderColor: "white",
-                color: "white",
-              }}
-            >
-              Save
-            </Button> */}
             {props.children}
           </Grid>
         </div>
