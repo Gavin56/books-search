@@ -40,7 +40,7 @@ function Saved() {
           elevation={4}
           style={{
             backgroundColor: "#474747",
-            height: 200,
+            height: 225,
             marginBottom: 35,
           }}
         >
@@ -52,6 +52,36 @@ function Saved() {
               ></BooksIcon>
               Welcome to Google Books!
             </h1>
+            <h2
+              style={{
+                color: "white",
+                textAlign: "center",
+                fontStyle: "italic",
+              }}
+            >
+              Your Saved Books
+            </h2>
+            <Grid item xs={12} style={{display:"flex", justifyContent:"center"}}>
+              <Button
+                variant="contained"
+                style={{ marginRight: 20 }}
+                href="/search"
+              >
+                Search
+              </Button>
+
+              <Button
+                variant="disabled"
+                style={{
+                  borderWidth: 1,
+                  color: "#5eff45",
+                  borderColor: "#5eff45",
+                  borderStyle: "solid",
+                }}
+              >
+                Saved
+              </Button>
+            </Grid>
           </div>
         </Paper>
 

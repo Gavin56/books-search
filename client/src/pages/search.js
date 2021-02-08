@@ -57,7 +57,7 @@ function Search() {
           elevation={4}
           style={{
             backgroundColor: "#474747",
-            height: 200,
+            height: 225,
             marginBottom: 35,
           }}
         >
@@ -77,6 +77,31 @@ function Search() {
             >
               <input placeholder="Search Book" onChange={handleInputChange} />
               <button onClick={handleBtnClick}>Search</button>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              style={{ display: "flex", justifyContent: "center", marginTop: 25,}}
+            >
+              <Button
+                variant="disabled"
+                style={{
+                  borderWidth: 1,
+                  color: "#5eff45",
+                  borderColor: "#5eff45",
+                  borderStyle: "solid",
+                }}
+              >
+                Search
+              </Button>
+
+              <Button
+                variant="contained"
+                style={{ marginLeft: 20 }}
+                href="/saved"
+              >
+                Saved
+              </Button>
             </Grid>
           </div>
         </Paper>
