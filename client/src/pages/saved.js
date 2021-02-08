@@ -45,7 +45,14 @@ function Saved() {
           }}
         >
           <div>
-            <h1 style={{ textAlign: "center", color: "white", paddingTop: 15, fontFamily:'Playfair Display' }}>
+            <h1
+              style={{
+                textAlign: "center",
+                color: "white",
+                paddingTop: 15,
+                fontFamily: "Playfair Display",
+              }}
+            >
               <BooksIcon
                 fontSize="large"
                 style={{ marginRight: 10 }}
@@ -57,12 +64,16 @@ function Saved() {
                 color: "white",
                 textAlign: "center",
                 fontStyle: "italic",
-                fontFamily:'Playfair Display' 
+                fontFamily: "Playfair Display",
               }}
             >
               Your Saved Books
             </h2>
-            <Grid item xs={12} style={{display:"flex", justifyContent:"center"}}>
+            <Grid
+              item
+              xs={12}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
               <Button
                 variant="contained"
                 style={{ marginRight: 20 }}
@@ -112,23 +123,24 @@ function Saved() {
                     Delete
                   </Button>
                 </BookCard>
-                {/* {displayData.length ? (
-                <p></p>
-              ) : (
-                <p
-                  style={{
-                    textAlign: "center",
-                    color: "white",
-                    paddingTop: 20,
-                  }}
-                >
-                  Saved books will appear here.
-                </p>
-              )} */}
               </Grid>
             );
           })}
         </Grid>
+        
+        {displayData.length ? (
+          <p></p>
+        ) : (
+          <p
+            style={{
+              textAlign: "center",
+              color: "white",
+              paddingTop: 20,
+            }}
+          >
+            Saved books will appear here.
+          </p>
+        )}
       </Paper>
     </Container>
   );
