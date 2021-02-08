@@ -1,6 +1,7 @@
 {
   "name": "google-books-search",
   "version": "0.1.0",
+  "proxy": "http://localhost:3001/",
   "private": true,
   "dependencies": {
     "@material-ui/icons": "^4.11.2",

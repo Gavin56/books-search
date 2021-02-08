@@ -10,7 +10,6 @@ import BooksIcon from "@material-ui/icons/LibraryBooksOutlined";
 function Search() {
   const [search, setSearch] = useState("");
   const [googleBooks, setGoogleBooks] = useState([]);
-  const [displayData, setDisplayData] = useState([]);
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
@@ -34,7 +33,7 @@ function Search() {
       googleId: savedBooks.id,
       title: savedBooks.volumeInfo.title,
       image: savedBooks.volumeInfo.imageLinks.thumbnail,
-      author: savedBooks.volumeInfo.authors.join(", "),
+      author: savedBooks.volumeInfo.authors,
       description: savedBooks.volumeInfo.description,
       link: savedBooks.volumeInfo.infoLink,
     })
@@ -91,8 +90,12 @@ function Search() {
                   authors={books.volumeInfo.authors + ""}
                   description={books.volumeInfo.description}
                   link={books.volumeInfo.infoLink}
-                  handleSave={() => handleSavedBooks(books.id)}
-                ></BookCard>
+                  // handleSave={() => handleSavedBooks(books.id)}
+                >
+                  <button onClick={() => handleSavedBooks(books.id)}>
+                    Save
+                  </button>
+                </BookCard>
               </Grid>
             );
           })}

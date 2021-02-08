@@ -36,7 +36,7 @@ function BookCard(props) {
             >
               View
             </Button>
-            <Button
+            {/* <Button
               onClick={props.handleSave}
               variant="outlined"
               style={{
@@ -48,7 +48,8 @@ function BookCard(props) {
               }}
             >
               Save
-            </Button>
+            </Button> */}
+            {props.children}
           </Grid>
         </div>
       </Paper>
